@@ -27,7 +27,7 @@ const WalletContainer = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: right;
 `;
 
 const WalletAmount = styled.div`
@@ -57,9 +57,10 @@ const WalletAmount = styled.div`
 `;
 
 const Wallet = styled.ul`
-  flex: 0 0 auto;
+  flex: 1 0 auto;
   margin: 0;
   padding: 0;
+  justify-content: right;
 `;
 
 const ConnectButton = styled(WalletMultiButton)`
@@ -67,8 +68,11 @@ const ConnectButton = styled(WalletMultiButton)`
   padding: 6px 16px;
   background-color: #4E44CE;
   margin: 0 auto;
+  align: right;
 `;
 
+
+/*
 const NFT = styled(Paper)`
   min-width: 500px;
   padding: 5px 20px 20px 20px;
@@ -77,10 +81,12 @@ const NFT = styled(Paper)`
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22) !important;
 `;
 
+
 const Des = styled(NFT)`
   text-align: left;
   padding-top: 0px;
 `;
+*/
 
 
 const Card = styled(Paper)`
@@ -95,23 +101,21 @@ const Card = styled(Paper)`
 `;
 
 const MintButtonContainer = styled.div`
+  width: 100%;
   button.MuiButton-contained:not(.MuiButton-containedPrimary).Mui-disabled {
     color: #464646;
   }
-
   button.MuiButton-contained:not(.MuiButton-containedPrimary):hover,
   button.MuiButton-contained:not(.MuiButton-containedPrimary):focus {
     -webkit-animation: pulse 1s;
     animation: pulse 1s;
     box-shadow: 0 0 0 2em rgba(255, 255, 255, 0);
   }
-
   @-webkit-keyframes pulse {
     0% {
       box-shadow: 0 0 0 0 #ef8f6e;
     }
   }
-
   @keyframes pulse {
     0% {
       box-shadow: 0 0 0 0 #ef8f6e;
@@ -120,20 +124,18 @@ const MintButtonContainer = styled.div`
 `;
 
 const Logo = styled.div`
-  flex: 0 0 auto;
-
+  flex: 0 1 auto;
   img {
     height: 60px;
   }
 `;
+
 const Menu = styled.ul`
   list-style: none;
   display: inline-flex;
   flex: 1 0 auto;
-
   li {
     margin: 0 12px;
-
     a {
       color: var(--main-text-color);
       list-style-image: none;
@@ -145,19 +147,17 @@ const Menu = styled.ul`
       touch-action: manipulation;
       transition: color 0.3s;
       padding-bottom: 15px;
-
       img {
         max-height: 26px;
       }
     }
-
     a:hover, a:active {
       color: rgb(131, 146, 161);
       border-bottom: 4px solid var(--title-text-color);
     }
-
   }
 `;
+
 
 const SolExplorerLink = styled.a`
   color: var(--title-text-color);
@@ -169,7 +169,6 @@ const SolExplorerLink = styled.a`
   outline: none;
   text-decoration: none;
   text-size-adjust: 100%;
-
   :hover {
     border-bottom: 2px solid var(--title-text-color);
   }
@@ -186,20 +185,25 @@ const MainContainer = styled.div`
   justify-content: center;
 `;
 
+/*
 const MintContainer = styled.div`
-  display: flex;
   flex-direction: row;
   flex: 1 1 auto;
   flex-wrap: wrap;
   gap: 20px;
+  margin-left: 5%;
+  margin-right: 5%;
+  width: 90%;
 `;
 
+
 const DesContainer = styled.div`
-  display: flex;
+
   flex-direction: column;
   flex: 1 1 auto;
-  gap: 20px;
+  width: 100%;
 `;
+*/
 
 const Price = styled(Chip)`
   position: absolute;
@@ -210,10 +214,11 @@ const Price = styled(Chip)`
 `;
 
 const Image = styled.img`
-  height: 400px;
-  width: auto;
+  height: 30%;
+  width: 30%;
   border-radius: 7px;
   box-shadow: 5px 5px 40px 5px rgba(0,0,0,0.5);
+  margin: 2%;
 `;
 
 const BorderLinearProgress = styled(LinearProgress)`
@@ -227,7 +232,6 @@ const BorderLinearProgress = styled(LinearProgress)`
   > div.MuiLinearProgress-barColorPrimary{
     background-color:var(--title-text-color) !important;
   }
-
   > div.MuiLinearProgress-bar1Determinate {
     border-radius: 30px !important;
     background-image: linear-gradient(270deg, rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 0.5));
@@ -249,19 +253,21 @@ const ShimmerTitle = styled.h1`
   }
 `;
 
+/*
 const GoldTitle = styled.h2`
   color: var(--title-text-color);
 `;
 
+
 const LogoAligner = styled.div`
   display: flex;
   align-items: center;
-
   img {
     max-height: 35px;
     margin-right: 10px;
   }
 `;
+*/
 
 
 export interface HomeProps {
@@ -552,12 +558,9 @@ const Home = (props: HomeProps) => {
                     <Logo><a href="http://localhost:3000/" target="_blank" rel="noopener noreferrer"><img alt=""
                                                                                                           src="logo.png"/></a></Logo>
                     <Menu>
-                        <li><a href="http://localhost:3000/" target="_blank" rel="noopener noreferrer">Menu 1</a>
-                        </li>
-                        <li><a href="http://localhost:3000/" target="_blank"
-                               rel="noopener noreferrer">Menu 2</a></li>
-                        <li><a href="http://localhost:3000/" target="_blank"
-                               rel="noopener noreferrer">Menu 3</a></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
                     </Menu>
                     <Wallet>
                         {wallet ?
@@ -567,15 +570,15 @@ const Home = (props: HomeProps) => {
                 </WalletContainer>
                 <ShimmerTitle>MINT IS LIVE !</ShimmerTitle>
                 <br/>
-                <MintContainer>
-                    <DesContainer>
-                        <NFT elevation={3}>
-                            <h2>My NFT</h2>
+                
+                    
+                        
+                            
                             <br/>
                             <div><Price
-                                label={isActive && whitelistEnabled && (whitelistTokenBalance > 0) ? (whitelistPrice + " " + priceLabel) : (price + " " + priceLabel)}/><Image
-                                src="cool-cats.gif"
-                                alt="NFT To Mint"/></div>
+                                label={isActive && whitelistEnabled && (whitelistTokenBalance > 0) ? (whitelistPrice + " " + priceLabel) : (price + " " + priceLabel)}/>
+                                    <Image src="0.png" alt="NFT To Mint"/>
+                            </div>
                             <br/>
                             {wallet && isActive && whitelistEnabled && (whitelistTokenBalance > 0) && isBurnToken &&
                               <h3>You own {whitelistTokenBalance} WL mint {whitelistTokenBalance > 1 ? "tokens" : "token" }.</h3>}
@@ -654,38 +657,9 @@ const Home = (props: HomeProps) => {
                             <br/>
                             {wallet && isActive && solanaExplorerLink &&
                               <SolExplorerLink href={solanaExplorerLink} target="_blank">View on Solscan</SolExplorerLink>}
-                        </NFT>
-                    </DesContainer>
-                    <DesContainer>
-                        <Des elevation={2}>
-                            <LogoAligner><img src="logo.png" alt=""></img><GoldTitle>TITLE 1</GoldTitle></LogoAligner>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt.</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt.</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt.</p>
-                        </Des>
-                        <Des elevation={2}>
-                            <LogoAligner><img src="logo.png" alt=""></img><GoldTitle>TITLE 2</GoldTitle></LogoAligner>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt.</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt.</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt.</p>
-                        </Des>
-                        <Des elevation={2}>
-                            <LogoAligner><img src="logo.png" alt=""></img><GoldTitle>TITLE 3</GoldTitle></LogoAligner>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt.</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt.</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt.</p>
-                        </Des>
-                    </DesContainer>
-                </MintContainer>
+                        
+                    
+                
             </MainContainer>
             <Snackbar
                 open={alertState.open}
